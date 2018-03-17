@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component,Inject } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import {  trigger,state,transition,style,animate,keyframes} from "@angular/animations";
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  
+
 })
 export class AppComponent {
-  squareState:string;
+
   darkTheme = false;
 
- constructor(private oc:OverlayContainer){
+ constructor(private oc:OverlayContainer, ){
 
   }
   switchTheme(dark){
@@ -19,5 +21,5 @@ export class AppComponent {
     this.oc.getContainerElement().className=dark ? 'myapp-dark-theme' : null;
   }
  
- 
 }
+

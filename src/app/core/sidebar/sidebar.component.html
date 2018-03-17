@@ -1,12 +1,12 @@
 <mat-nav-list color="primary">
   <h3 mat-subheader>数据监控</h3>
-  <mat-list-item>
+  <mat-list-item [routerLink]="['/project']" (click)="onNavClick()">
     <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
     <span mat-line>菜单一</span>
     <span mat-line md-subheader>查看所有项目</span>
   </mat-list-item>
   <h3 mat-subheader>日历</h3>
-    <mat-list-item>
+    <mat-list-item  [routerLink]="['/tasklists']"  (click)="onNavClick()">
     <mat-icon mat-list-icon svgIcon="month"></mat-icon>
     <span mat-line>月视图</span>
     <span mat-line mat-subheader>按月查看任务</span>    

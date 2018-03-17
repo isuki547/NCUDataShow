@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxEchartsModule} from "ngx-echarts";
 import { 
   MatInputModule,
   MatFormFieldModule,
@@ -21,6 +21,7 @@ import {
   MatNativeDateModule,
   MatDatepickerModule,
   MatSelectModule,
+  MatSidenavModule,
   } from "@angular/material";
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
@@ -47,6 +48,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatNativeDateModule,    
     MatDatepickerModule,
     MatSelectModule,
+    MatSidenavModule,
+    NgxEchartsModule
     
   
   ],
@@ -71,7 +74,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatNativeDateModule,
     MatDatepickerModule,
     MatSelectModule,
-    
+    MatSidenavModule,
     
   ],
   entryComponents:[ConfirmDialogComponent],

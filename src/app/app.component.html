@@ -1,6 +1,6 @@
 <mat-sidenav-container [class.myapp-dark-theme]="darkTheme">
   <mat-sidenav #sidenav mode="push">
-    <app-sidebar></app-sidebar>
+    <app-sidebar (navClick)="sidenav.toggle()"></app-sidebar>
   </mat-sidenav>
   <div class="site">
       <header>
@@ -9,6 +9,7 @@
       </header>
       <main>
         <router-outlet></router-outlet>
+
       </main>
       <footer>
         <app-footer></app-footer>
