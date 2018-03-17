@@ -11,7 +11,6 @@ import { DomSanitizer} from "@angular/platform-browser";
 import { loadSvgResource }from "../utils/svg.utill";
 import { AppRoutingModule } from "../app-routing.module";
 import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
-
 import 'hammerjs';
 @NgModule({
   imports: [

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit,ElementRef } from '@angular/core';
+
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
