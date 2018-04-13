@@ -3,6 +3,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import {  trigger,state,transition,style,animate,keyframes} from "@angular/animations";
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,13 +14,11 @@ export class AppComponent {
 
   darkTheme = false;
 
- constructor(private oc:OverlayContainer, ){
+ constructor(private oc:OverlayContainer ){
+  //  console.log(config);
+  //  @Inject('BASE_CONFIG') config
 
-  }
-  switchTheme(dark){
-    this.darkTheme=dark;
-    this.oc.getContainerElement().className=dark ? 'myapp-dark-theme' : null;
-  }
- 
 }
 
+
+}

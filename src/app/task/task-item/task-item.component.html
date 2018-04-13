@@ -3,7 +3,13 @@
 [ngClass]="{
 'priority-normal':item.priority===3,
 'priority-important':item.priority===2,
-'priority-emergency': item.priority===1}" 
+'priority-emergency': item.priority===1
+}" 
+[app-draggable]="true"
+[dragTag]="'task-item'"
+[draggedClass]="'drag-start'"
+[dragData]="item"
+
  (click)="onItemClick()"
 >
   <mat-checkbox  
@@ -17,6 +23,7 @@
     <span class="due-date" *ngIf="item.dueDate" >
       {{item.dueDate | date: "yy-MM-dd"}}
     </span>
+  
     <mat-icon *ngIf="item.reminder" >alarm</mat-icon>
   </div>
   <mat-icon [svgIcon]="avatar" mat-list-avatar class="avatar"></mat-icon>

@@ -1,10 +1,11 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding,ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { NewProjectComponent } from '../new-project/new-project.component';
  import { ConfirmDialogComponent } from "../../shared/confirm-dialog/confirm-dialog.component";
 import { InviteComponent} from "../invite/invite.component";
 import { SlideToRight } from "../../anims/router.anim";
 import { listAnimation } from '../../anims/list.anim';
+
 
 @Component({
   selector: 'app-project-list',
@@ -13,7 +14,8 @@ import { listAnimation } from '../../anims/list.anim';
   animations:[
     SlideToRight,
     listAnimation,
-  ]
+  ],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
  @HostBinding('@routerAnim') state;
@@ -33,7 +35,7 @@ export class ProjectListComponent implements OnInit {
     },
   ];
 
-  constructor(private dialog: MatDialog) { }//调用者注入service
+  constructor(private dialog: MatDialog,private cd:ChangeDetectorRef) { }//调用者注入service
   
   ngOnInit() {
    }
@@ -55,7 +57,7 @@ export class ProjectListComponent implements OnInit {
      const dialogRef=this.dialog.open(ConfirmDialogComponent,{data:{title:'删除监控',content:'确认删除监控？'}});
      dialogRef.afterClosed().subscribe(result=>console.log(result));
      this.projects=[... this.projects.filter(p=>p.id !== project.id)];
-     
+     this.cd.markForCheck();
     }
     launchInviteDialog(){
       const dialogRef=this.dialog.open(InviteComponent);

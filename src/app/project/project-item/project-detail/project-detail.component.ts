@@ -1,5 +1,5 @@
 import { Component, OnInit,ElementRef } from '@angular/core';
-
+import { Http } from "@angular/http";
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
@@ -8,54 +8,49 @@ import { Component, OnInit,ElementRef } from '@angular/core';
 export class ProjectDetailComponent implements OnInit {
   option1: any;
   
-  constructor() { }
+  constructor(http:Http) { 
+   http.get('"URL"');
+   
+  }
 
   ngOnInit() {
-    let xAxisData = [];
-    let data1 = [];
-    let data2 = [];
-
-    for (let i = 0; i < 100; i++) {
-      xAxisData.push('category' + i);
-      data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
-      data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
-    }
-
-    this.option1 = {
-      legend: {
-        data: ['bar', 'bar2'],
-        align: 'left'
-      },
-      tooltip: {},
-      xAxis: {
-        data: xAxisData,
-        silent: false,
-        splitLine: {
-          show: false
-        }
-      },
-      yAxis: {
-      },
-      series: [{
-        name: 'bar',
-        type: 'bar',
-        data: data1,
-        animationDelay: function (idx) {
-          return idx * 10;
-        }
-      }, {
-        name: 'bar2',
-        type: 'bar',
-        data: data2,
-        animationDelay: function (idx) {
-          return idx * 10 + 100;
-        }
-      }],
-      animationEasing: 'elasticOut',
-      animationDelayUpdate: function (idx) {
-        return idx * 5;
-      }
-    };
+  
   }
+  loadjson(){
+    this.option1={
+      title: {
+        text: '异步数据加载示例'
+    },
+    tooltip: {},
+    legend: {
+        data: ['发布排行']
+    },
+    xAxis: {
+        data: []
+    },
+    yAxis: {
+        splitLine: { show: false },//去除网格线
+        name: ''
+    },
+    series: [{
+        barWidth: "30px",
+        name: '发布排行',
+        type: 'bar',
+        itemStyle: {
+            normal: {
+                label: {
+                    show: true,
+                    position: 'top',
+                    textStyle: {
+                        color: '#333'
+                    }
+                }
+            }
+        },
+        data: []
+    }]
+  };
+  }
+  
   
 }

@@ -11,12 +11,15 @@ import { DomSanitizer} from "@angular/platform-browser";
 import { loadSvgResource }from "../utils/svg.utill";
 import { AppRoutingModule } from "../app-routing.module";
 import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ServiceModule } from "../service/service.module";
 import 'hammerjs';
+import 'rxjs/add/operator/take';
 @NgModule({
   imports: [
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
+    ServiceModule.forRoot(),
     BrowserAnimationsModule,
   ],
   declarations: [
@@ -29,7 +32,10 @@ import 'hammerjs';
     FooterComponent,
     SidebarComponent,
     AppRoutingModule,
-  ]
+  ],
+  // providers:[
+  //   {provide: 'BASE_CONFIG',useValue: 'http://localhost:4200'}
+  // ]
 })
 export class CoreModule { 
   constructor(

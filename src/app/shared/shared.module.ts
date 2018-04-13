@@ -22,8 +22,10 @@ import {
   MatDatepickerModule,
   MatSelectModule,
   MatSidenavModule,
+
   } from "@angular/material";
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DirectiveModule } from '../directive/directive.module';
 
 //导入导出
 @NgModule({
@@ -49,8 +51,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatDatepickerModule,
     MatSelectModule,
     MatSidenavModule,
-    NgxEchartsModule
-    
+    NgxEchartsModule,
+    DirectiveModule,
   
   ],
   exports:[
@@ -75,6 +77,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatDatepickerModule,
     MatSelectModule,
     MatSidenavModule,
+    DirectiveModule,
     
   ],
   entryComponents:[ConfirmDialogComponent],

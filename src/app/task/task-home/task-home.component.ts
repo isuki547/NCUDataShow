@@ -1,4 +1,4 @@
-import { Component, OnInit,HostBinding } from '@angular/core';
+import { Component, OnInit,HostBinding,ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { MoveTaskComponent } from '../move-task/move-task.component';
@@ -6,13 +6,15 @@ import { ConfirmDialogComponent } from "../../shared/confirm-dialog/confirm-dial
 import { NewTaskListComponent } from "../new-task-list/new-task-list.component";
 import { SlideToRight } from "../../anims/router.anim";
 
+
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
   styleUrls: ['./task-home.component.scss'],
   animations:[
     SlideToRight
-  ]
+  ],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class TaskHomeComponent implements OnInit {
 
@@ -22,6 +24,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id:1,
       name:'代办',
+      order:1,
       tasks:[
         {
           id:1,
@@ -53,6 +56,7 @@ export class TaskHomeComponent implements OnInit {
      {
       id:2,
       name:'进行中',
+      order:2,
       tasks:[
         {
           id:1,
@@ -83,6 +87,7 @@ export class TaskHomeComponent implements OnInit {
      {
       id:3,
       name:'已完成',
+      order:3,
       tasks:[
         {
           id:1,
@@ -111,7 +116,7 @@ export class TaskHomeComponent implements OnInit {
       ]
     }
     ]
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog:MatDialog,private cd:ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -137,5 +142,22 @@ export class TaskHomeComponent implements OnInit {
     const dialogRef=this.dialog.open(NewTaskListComponent,{data:{title:'新建列表',content:'确认新建任务列表？'}});
      dialogRef.afterClosed().subscribe(result=>console.log(result));
    
+  }
+  handleMove(srcData,list){
+    switch(srcData.tag){
+      case 'task-item':
+      console.log('handling item');
+      break;
+      case 'task-list':
+      console.log('handling list');
+      const srcList =srcData.data;
+      const tempOrder=srcList.order;
+      srcList.order=list.order;
+      list.order=tempOrder;
+      break;
+      default:
+      break;
+    }
+
   }
 }

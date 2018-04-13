@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
 import {  BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.component.html',
-  styleUrls: ['./invite.component.scss']
+  styleUrls: ['./invite.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class InviteComponent implements OnInit {
   items=[
