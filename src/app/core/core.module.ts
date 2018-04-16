@@ -14,8 +14,13 @@ import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ServiceModule } from "../service/service.module";
 import 'hammerjs';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+
+import '../utils/debug.utill'
 @NgModule({
   imports: [
+    HttpModule,
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
@@ -33,9 +38,12 @@ import 'rxjs/add/operator/take';
     SidebarComponent,
     AppRoutingModule,
   ],
-  // providers:[
-  //   {provide: 'BASE_CONFIG',useValue: 'http://localhost:4200'}
-  // ]
+  providers:[
+    {provide: 'BASE_CONFIG',useValue: {
+      uri:'http://localhost:3000'
+        }
+     }
+  ]
 })
 export class CoreModule { 
   constructor(

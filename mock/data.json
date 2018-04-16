@@ -1,0 +1,28 @@
+{
+    "quotes":[
+        {
+            "id":"0",
+            "cn":"我现在已经习惯了宁静的生活，只有善念才是最好的陪伴，才不会感到困惑和烦恼。——《第三极》",
+            "en":"I have now become accustomed to a quiet life. Only good thoughts are the best companions, and I will not be confused or annoyed.",
+            "pic":"/assets/img/quotes/0.jpg"
+        },
+        {
+            "id":"1",
+            "cn":"来看爸爸比赛吧，因为，赛马对男人很重要。——《极地》",
+            "en":"Look at Daddy's game, because racing is very important to men. ",
+            "pic":"/assets/img/quotes/1.jpg"
+        },
+        {
+            "id":"2",
+            "cn":"第一个愿望是，佛一直可以在我心里，帮助我别离开我，来生还可以做人。——《极地》",
+            "en":"The first wish is that the Buddha can always be in my heart and help me not to leave me,can still be a person next life. ",
+            "pic":"/assets/img/quotes/2.jpg"
+        },
+        {
+            "id":"3",
+            "cn":"第三个愿望是，生活可以好起来，一点点好起来，就可以。——《极地》",
+            "en":"The third wish is that life can be better and a little bit better.",
+            "pic":"/assets/img/quotes/3.jpg"
+        }
+    ]
+}

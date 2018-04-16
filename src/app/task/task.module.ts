@@ -9,6 +9,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import { MatTooltipModule } from "@angular/material";
 import { MoveTaskComponent } from './move-task/move-task.component';
 import { NewTaskListComponent } from './new-task-list/new-task-list.component';
+import { QuickTaskComponent } from './quick-task/quick-task.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -22,7 +23,8 @@ import { NewTaskListComponent } from './new-task-list/new-task-list.component';
     TaskHeaderComponent, 
     NewTaskComponent,
     MoveTaskComponent, 
-    NewTaskListComponent,
+    NewTaskListComponent, 
+    QuickTaskComponent,
   ],
   entryComponents:[
     NewTaskComponent,

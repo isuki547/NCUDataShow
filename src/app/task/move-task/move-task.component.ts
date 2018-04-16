@@ -16,5 +16,8 @@ export class MoveTaskComponent implements OnInit {
   ngOnInit() {
     this.lists=this.data.lists;
   }
+  onClick(){
+    
+  }
 
 }
