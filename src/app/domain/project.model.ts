@@ -5,5 +5,5 @@ export interface Project{
     coverImg:string;
     taskLists?:string[];//列表id
     members?:string[];//成员id
-
+    chart?:string[];//监控id
 }

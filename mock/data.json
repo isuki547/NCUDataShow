@@ -1,28 +1,93 @@
 {
-    "quotes":[
-        {
-            "id":"0",
-            "cn":"我现在已经习惯了宁静的生活，只有善念才是最好的陪伴，才不会感到困惑和烦恼。——《第三极》",
-            "en":"I have now become accustomed to a quiet life. Only good thoughts are the best companions, and I will not be confused or annoyed.",
-            "pic":"/assets/img/quotes/0.jpg"
-        },
-        {
-            "id":"1",
-            "cn":"来看爸爸比赛吧，因为，赛马对男人很重要。——《极地》",
-            "en":"Look at Daddy's game, because racing is very important to men. ",
-            "pic":"/assets/img/quotes/1.jpg"
-        },
-        {
-            "id":"2",
-            "cn":"第一个愿望是，佛一直可以在我心里，帮助我别离开我，来生还可以做人。——《极地》",
-            "en":"The first wish is that the Buddha can always be in my heart and help me not to leave me,can still be a person next life. ",
-            "pic":"/assets/img/quotes/2.jpg"
-        },
-        {
-            "id":"3",
-            "cn":"第三个愿望是，生活可以好起来，一点点好起来，就可以。——《极地》",
-            "en":"The third wish is that life can be better and a little bit better.",
-            "pic":"/assets/img/quotes/3.jpg"
-        }
-    ]
+  "users":[
+    {
+      "password": "547200",
+      "name": "吴思奇",
+      "avatar": "avatars:svg-1",
+      "email": "jlosuki@hotmail.com",
+      "id": "37489e0c-df34-c261-71c4-ce75357e3035",
+      "projectIds": [
+        "1"
+       
+      ]
+    
+    },
+    {
+      "password": "lisi",
+      "name": "李四",
+      "avatar": "avatars:svg-2",
+      "email": "lisi@163.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "2"
+      ]
+      
+    },
+    {
+      "password": "zhaosi",
+      "name": "尼古拉斯.赵四",
+      "avatar": "avatars:svg-2",
+      "email": "nigulasi@163.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "1"
+      ]
+      
+    }
+  ],
+    "projects": [
+    {
+      "id": "1",
+      "name": "监控1",
+      "desc": "描述",
+      "coverImg": "assets/img/covers/0.jpg",
+      "members": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "监控2",
+      "desc": "描述21",
+      "coverImg": "assets/img/covers/1.jpg",
+      "members": [
+        "1"
+      ]
+    },
+    {
+      "name": "qq",
+      "desc": null,
+      "coverImg": "/assets/img/covers/2.jpg",
+      "id": "yluozgo"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "0",
+      "cn": "我现在已经习惯了宁静的生活，只有善念才是最好的陪伴，才不会感到困惑和烦恼。——《第三极》",
+      "en": "I have now become accustomed to a quiet life. Only good thoughts are the best companions, and I will not be confused or annoyed.",
+      "pic": "/assets/img/quotes/0.jpg"
+    },
+    {
+      "id": "1",
+      "cn": "来看爸爸比赛吧，因为，赛马对男人很重要。——《极地》",
+      "en": "Look at Daddy's game, because racing is very important to men. ",
+      "pic": "/assets/img/quotes/1.jpg"
+    },
+    {
+      "id": "2",
+      "cn": "第一个愿望是，佛一直可以在我心里，帮助我别离开我，来生还可以做人。——《极地》",
+      "en": "The first wish is that the Buddha can always be in my heart and help me not to leave me,can still be a person next life. ",
+      "pic": "/assets/img/quotes/2.jpg"
+    },
+    {
+      "id": "3",
+      "cn": "第三个愿望是，生活可以好起来，一点点好起来，就可以。——《极地》",
+      "en": "The third wish is that life can be better and a little bit better.",
+      "pic": "/assets/img/quotes/3.jpg"
+    }
+  ],
+  "tasklists":[],
+  "task":[]
 }

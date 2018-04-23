@@ -23,11 +23,13 @@ import {
   MatDatepickerModule,
   MatSelectModule,
   MatSidenavModule,
+  MatChipsModule,
 
   } from "@angular/material";
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DirectiveModule } from '../directive/directive.module';
 import { ImageListSelectComponent } from './image-list-select/image-list-select.component';
+import { ChipsListComponent } from './chips-list/chips-list.component';
 
 //导入导出
 @NgModule({
@@ -57,7 +59,8 @@ import { ImageListSelectComponent } from './image-list-select/image-list-select.
     MatSidenavModule,
     NgxEchartsModule,
     DirectiveModule,
-  
+    MatChipsModule,
+    
   ],
   exports:[
     BrowserAnimationsModule,
@@ -85,11 +88,14 @@ import { ImageListSelectComponent } from './image-list-select/image-list-select.
     MatSidenavModule,
     DirectiveModule,
     ImageListSelectComponent,
+    ChipsListComponent,
+    MatChipsModule,
   ],
   entryComponents:[ConfirmDialogComponent],
   declarations:[
      ConfirmDialogComponent,
-     ImageListSelectComponent
+     ImageListSelectComponent,
+     ChipsListComponent,
     ]
 })
 export class SharedModule { }

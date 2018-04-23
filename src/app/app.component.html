@@ -1,6 +1,6 @@
 <mat-sidenav-container [class.myapp-dark-theme]="darkTheme">
-  <mat-sidenav #sidenav mode="push">
-    <app-sidebar (navClick)="sidenav.toggle()"></app-sidebar>
+  <mat-sidenav #sidenav mode="side" mat-is-locked-open="true" >
+    <app-sidebar (navClick)="sidenav.open()"></app-sidebar>
   </mat-sidenav>
   <div class="site">
       <header>
