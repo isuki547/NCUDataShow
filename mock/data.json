@@ -1,5 +1,5 @@
 {
-  "users":[
+  "users": [
     {
       "password": "547200",
       "name": "吴思奇",
@@ -8,9 +8,7 @@
       "id": "37489e0c-df34-c261-71c4-ce75357e3035",
       "projectIds": [
         "1"
-       
       ]
-    
     },
     {
       "password": "lisi",
@@ -21,7 +19,6 @@
       "projectIds": [
         "2"
       ]
-      
     },
     {
       "password": "zhaosi",
@@ -32,10 +29,17 @@
       "projectIds": [
         "1"
       ]
-      
+    },
+    {
+      "email": "805453682@qq.com",
+      "name": "5472",
+      "password": "547200",
+      "repeat": "547200",
+      "avatar": "avatars:svg-0",
+      "id": "HR2_os9"
     }
   ],
-    "projects": [
+  "projects": [
     {
       "id": "1",
       "name": "监控1",
@@ -59,7 +63,111 @@
       "name": "qq",
       "desc": null,
       "coverImg": "/assets/img/covers/2.jpg",
-      "id": "yluozgo"
+      "id": "",
+      "members": [
+        "1"
+      ]
+    },
+    {
+      "name": "的",
+      "desc": null,
+      "coverImg": "/assets/img/covers/2.jpg",
+      "id": "",
+      "members": [
+        "1"
+      ]
+    },
+    {
+      "name": "w",
+      "desc": null,
+      "coverImg": "/assets/img/covers/2.jpg",
+      "id": "j~VPUZ0",
+      "members": [
+        "1"
+      ]
+    },
+    {
+      "name": "we",
+      "desc": null,
+      "coverImg": "/assets/img/covers/4.jpg",
+      "id": "CXeprCj",
+      "members": [
+        "1"
+      ]
+    },
+    {
+      "name": "123",
+      "desc": null,
+      "coverImg": "/assets/img/covers/3.jpg",
+      "id": "tvQiFBB"
+    },
+    {
+      "name": "1",
+      "desc": null,
+      "coverImg": "/assets/img/covers/1.jpg",
+      "id": "RQGltd4"
+    },
+    {
+      "name": "2",
+      "desc": null,
+      "coverImg": "/assets/img/covers/4.jpg",
+      "id": "SYNcsgH"
+    },
+    {
+      "name": "3",
+      "desc": null,
+      "coverImg": "/assets/img/covers/2.jpg",
+      "id": "iG8TMMn"
+    },
+    {
+      "name": "1",
+      "desc": null,
+      "coverImg": "/assets/img/covers/4.jpg",
+      "id": "Byr1Eqf"
+    },
+    {
+      "name": "2",
+      "desc": null,
+      "coverImg": "/assets/img/covers/1.jpg",
+      "id": "xPcXTx0"
+    },
+    {
+      "name": "23",
+      "desc": null,
+      "coverImg": "/assets/img/covers/0.jpg",
+      "id": "H7_ANnp"
+    },
+    {
+      "name": "4",
+      "desc": null,
+      "coverImg": "/assets/img/covers/4.jpg",
+      "id": "6FGGX23"
+    },
+    {
+      "name": "5",
+      "desc": null,
+      "coverImg": "/assets/img/covers/4.jpg",
+      "id": "MPbVNIF"
+    },
+    {
+      "name": "6",
+      "desc": null,
+      "coverImg": "/assets/img/covers/1.jpg",
+      "id": "r7E6IpL"
+    },
+    {
+      "name": "7qq",
+      "desc": "q",
+      "coverImg": "/assets/img/covers/4.jpg",
+      "id": "KCeXrIS"
+    }
+  ],
+  "taskLists": [
+    {
+      "name": "list1",
+      "order": 1,
+      "projectId": "1",
+      "id": "GNJvELQ"
     }
   ],
   "quotes": [
@@ -71,8 +179,8 @@
     },
     {
       "id": "1",
-      "cn": "来看爸爸比赛吧，因为，赛马对男人很重要。——《极地》",
-      "en": "Look at Daddy's game, because racing is very important to men. ",
+      "cn": "我不知道遇见你是对是错，但我知道遇见你我开心过",
+      "en": "I don't know whether it's right or wrong to meet you ,but I know I'm happy to meet you. ",
       "pic": "/assets/img/quotes/1.jpg"
     },
     {
@@ -88,6 +196,48 @@
       "pic": "/assets/img/quotes/3.jpg"
     }
   ],
-  "tasklists":[],
-  "task":[]
+  "tasklists": [
+    {
+      "name": "list1",
+      "order": 1,
+      "projectId": "1",
+      "id": "GNJvELQ"
+    }
+  ],
+  "task": [],
+  "echart": {
+    "name": "1",
+    "data1": [
+      1,
+      2,
+      3,
+      4,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "data2": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      9,
+      0,
+      7,
+      9
+    ],
+    "date": [
+      "2017-2-3",
+      "2017-23-3",
+      "2017-4-3",
+      "2017-5-3",
+      "2017-6-3",
+      "2017-7-3",
+      "2017-8-3",
+      "2017-9-3"
+    ]
+  }
 }

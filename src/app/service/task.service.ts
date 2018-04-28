@@ -7,7 +7,7 @@ import { TaskList } from '../domain/task-list.model';
 
 @Injectable()
 export class TaskService {
-    private readonly domain = 'tasks';
+    private readonly domain = 'tasklists';
     data:Object;
     private headers = new Headers({
         'Content-Type':'application/json'

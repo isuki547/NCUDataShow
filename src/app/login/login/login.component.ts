@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl,Validators } from "@angular/forms";
-import { QuoteService } from '../../service/quotes.service';
+// import { QuoteService } from '../../service/quotes.service';
 import { Quote } from '../../domain/quote.model';
+import { Observable } from 'rxjs/Observable';
+import { Store,select } from '@ngrx/store';
+import * as fromRoot from "../../reducers";
+import * as actions from "../../actions/quotes.action";
+import * as Authactions from "../../actions/auth.action";
+import { LoginAction } from '../../actions/auth.action';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,27 +18,36 @@ import { Quote } from '../../domain/quote.model';
 export class LoginComponent implements OnInit {
 
   form:FormGroup;
-  quote:Quote = {
-    "cn":"第一个愿望是，佛一直可以在我心里，帮助我别离开我，来生还可以做人。——《极地》",
-    "en":"The first wish is that the Buddha can always be in my heart and help me not to leave me,can still be a person next life. ",
-    "pic":"/assets/img/quotes/2.jpg",
-  };
-  constructor(private fb:FormBuilder,private quoteService$:QuoteService) { 
-    this.quoteService$
-    .getQuote()
-    .subscribe(q => this.quote = q);
+  quote$:Observable<Quote>
+  constructor(
+    private fb:FormBuilder,
+    // private quoteService$:QuoteService,
+    private store$:Store<fromRoot.State>
+  ) { 
+    this.quote$ = this.store$.pipe(select(fromRoot.getQuoteState));
+
+    // this.quoteService$
+    // .getQuote()
+    // .subscribe(q => {
+    //   this.store$.dispatch(new actions.LoadSuccessAction(q));
+    // });
   }
 
   ngOnInit() {
     this.form=this.fb.group({
-      name:['547',Validators.compose([Validators.required,Validators.email])],
+      name:['',Validators.compose([Validators.required,Validators.email])],
       password:['',Validators.required]
-    })
+    });
+    this.store$.dispatch({type: actions.QUOTE});
   }
 onSubmit({value,valid},ev:Event){
     ev.preventDefault();
     console.log(JSON.stringify(value));
     console.log(valid);
+    if(!valid){
+      return;
+    }
+    this.store$.dispatch(new Authactions.LoginAction(value));
 
   }
   

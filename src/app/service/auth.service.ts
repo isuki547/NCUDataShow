@@ -20,7 +20,7 @@ export class AuthService {
     }
     //POST请求 注册
     register(user:User): Observable<Auth>{
-        user.id = null;//默认不带id
+        // user.id = null;//默认不带id
         const uri=`${this.config.uri}/${this.domain}`;
         return this.http
         .get(uri,{params:{'email': user.email}})

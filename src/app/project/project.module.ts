@@ -9,13 +9,16 @@ import { InviteComponent } from './invite/invite.component';
 import { ProjectDetailComponent } from './project-item/project-detail/project-detail.component';
 import * as echarts from 'echarts';
 import { NgxEchartsModule} from "ngx-echarts";
+import { ReadjsonService } from '../service/Readjson.service';
 
 @NgModule({
   imports: [
     SharedModule,
     NgxEchartsModule,
     ProjectRoutingModule,
+    
   ],
+  providers: [ReadjsonService],
   declarations: [
     ProjectListComponent,
     ProjectItemComponent,

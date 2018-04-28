@@ -9,6 +9,11 @@ import { ProjectService } from '../../service/project.service';
 import * as _ from 'lodash';
 import { Project } from '../../domain/project.model';
 import { Subscription } from 'rxjs/Subscription';
+import { Store,select } from '@ngrx/store';
+import * as fromRoot from "../../reducers";
+import { Observable } from 'rxjs/Observable';
+import * as actions from '../../actions/project.action';
+import { map, take, switchMap, reduce, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-list',
@@ -20,28 +25,32 @@ import { Subscription } from 'rxjs/Subscription';
   ],
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class ProjectListComponent implements OnInit,OnDestroy {
+export class ProjectListComponent implements OnInit ,OnDestroy{
  @HostBinding('@routerAnim') state;
 
-  projects = [];
-  sub:Subscription;
+  projects$ : Observable<Project[]>;
+  listAnim$ : Observable<number>;//长度
+  // sub:Subscription;
 
-  constructor(private dialog: MatDialog,private cd:ChangeDetectorRef, private service$: ProjectService) { }//调用者注入service
-  
-  ngOnInit() {
-    this.sub=this.service$.get("1").subscribe(projects =>{
-      this.projects = projects;
-      // console.log(this.projects);
-       this.cd.markForCheck();
-       
-      })
+  constructor(
+    private dialog: MatDialog,
+    private cd:ChangeDetectorRef, 
+    private store$: Store<fromRoot.State>) { 
+      this.store$.dispatch(new actions.LoadAction(null));//加载
     
-   }
-   ngOnDestroy() {
-    if(this.sub){
-      this.sub.unsubscribe();
+      this.projects$ = this.store$.select(fromRoot.getProjects);
+      this.listAnim$ = this.projects$.map(p => p.length);
     }
-  }
+    selectProject(project: Project) {
+      this.store$.dispatch(new actions.SelectAction(project));
+    }
+
+  ngOnInit() {
+  
+   }
+   ngOnDestroy(){
+
+   }
   openNewProjectDialog(){
 
     const selectedImg=`/assets/img/covers/${Math.floor(Math.random()*5)}mini.jpg`;//默认选中的封面图
@@ -51,10 +60,9 @@ export class ProjectListComponent implements OnInit,OnDestroy {
       .take(1)//取一个值后结束不需要一直监视
       .filter(n => n)//确保里面有值
       .map(val =>({... val,coverImg:this.buildImgBig(val.coverImg)}))
-      .switchMap(v => this.service$.add(v))
       .subscribe(project => {
-        this.projects=[... this.projects,project];
-        this.cd.markForCheck();
+        this.store$.dispatch(new actions.AddAction(project));
+        // this.cd.markForCheck();
       });
       
 
@@ -68,11 +76,9 @@ export class ProjectListComponent implements OnInit,OnDestroy {
         .take(1)//取一个值后结束
         .filter(n => n)//确保里面有值
         .map(val =>({... val,id: project.id, coverImg: this.buildImgBig(val.coverImg)}))
-        .switchMap(v => this.service$.update(v))
         .subscribe(project => {
-          const index =this.projects.map(p=> p.id).indexOf(project.id);
-          this.projects=[... this.projects.slice(0, index), project, ...this.projects.slice(index + 1)];
-          this.cd.markForCheck();
+        this.store$.dispatch(new actions.UpdateAction(project));
+          
         });
 
     }
@@ -81,10 +87,9 @@ export class ProjectListComponent implements OnInit,OnDestroy {
      dialogRef.afterClosed()
      .take(1)
      .filter(n => n)
-     .switchMap(_ =>this.service$.del(project))
-     .subscribe(prj => {
-     this.projects=this.projects.filter(p => p.id !== prj.id);
-     this.cd.markForCheck();
+     .subscribe(_ => {
+     this.store$.dispatch(new actions.DeleteAction(project));
+
     });
   }
     launchInviteDialog(){

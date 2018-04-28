@@ -1,8 +1,11 @@
 import { Injectable,Inject } from '@angular/core';
 import { Http,Headers } from '@angular/http';
 import { Project } from '../domain/project.model';
+import { User } from '../domain/user.model';
 import { Observable } from 'rxjs/Observable';
 import { Response } from '@angular/http/src/static_response';
+import * as _ from 'lodash';
+import { mergeMap, count, switchMap, map } from 'rxjs/operators';
 
 @Injectable()
 export class ProjectService {
@@ -53,5 +56,21 @@ export class ProjectService {
       .get(uri, {params: {'members_like': userId}, headers: this.headers})
       .map(res => res.json());
     }
+ 
+     //PUT请求
+     invite(projectId:string,users:User[]): Observable<Project>{
+        const uri=`${this.config.uri}/${this.domain}/${projectId}`;
+      
+        return this.http.get(uri)
+          .map(res =>res.json())
+          .switchMap((project: Project) => {
+            const existingMembers = project.members;
+            const invitedIds = users.map(user => user.id);
+            const newIds = _.union(existingMembers, invitedIds);
+            return this.http
+            .patch(uri, JSON.stringify({ members: newIds }), { headers: this.headers })
+            .map(res =>res.json())
+          });
+    }
+  }
   
-}
