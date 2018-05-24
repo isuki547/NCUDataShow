@@ -1,5 +1,7 @@
 import { Component, OnInit,Input,Output,EventEmitter,HostBinding,HostListener,ChangeDetectionStrategy} from '@angular/core';
 import { cardAnim } from '../../anims/card.anim';
+import {Project} from '../../domain';
+
 @Component({
   selector: 'app-project-item',
   templateUrl: './project-item.component.html',
@@ -12,11 +14,12 @@ import { cardAnim } from '../../anims/card.anim';
 })
 export class ProjectItemComponent implements OnInit {
 
-  @Input() item;
+  @Input() item: Project;
   @Output() onInvite=new EventEmitter<void>();
   @Output() onEdit=new EventEmitter<void>();
   @Output() onDel=new EventEmitter<void>();  
   @Output() navClick= new EventEmitter<void>(); 
+  @Output() onSelected= new EventEmitter<void>(); 
   @HostBinding('@card')cardState='out';
   // 绑定动画初始值
 
@@ -33,16 +36,25 @@ export class ProjectItemComponent implements OnInit {
   @HostListener('mouseleave') onMouseLeave(){
     this.cardState='out';
   }
-  onInviteClick(){
+  onInviteClick(ev: Event){
+    ev.stopPropagation();//阻止冒泡
     this.onInvite.emit();
   }
-  onEditClick(){
+  onEditClick(ev: Event){
+    ev.stopPropagation();//阻止冒泡
     this.onEdit.emit();//往上发送事件
   }
-  onDeleteClick(){
+  onDeleteClick(ev: Event){
+    ev.stopPropagation();//阻止冒泡    
     this.onDel.emit();
   }
-  onNavClick(){
+  onNavClick(ev: Event){
+    ev.stopPropagation();//阻止冒泡    
     this.navClick.emit();
+  }
+  onClick(ev: Event){
+    ev.preventDefault();
+
+    this.onSelected.emit();
   }
 }

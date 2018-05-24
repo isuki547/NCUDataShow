@@ -24,7 +24,7 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatChipsModule,
-
+  MatTableModule
   } from "@angular/material";
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DirectiveModule } from '../directive/directive.module';
@@ -60,7 +60,7 @@ import { ChipsListComponent } from './chips-list/chips-list.component';
     NgxEchartsModule,
     DirectiveModule,
     MatChipsModule,
-    
+    MatTableModule,
   ],
   exports:[
     BrowserAnimationsModule,
@@ -90,6 +90,7 @@ import { ChipsListComponent } from './chips-list/chips-list.component';
     ImageListSelectComponent,
     ChipsListComponent,
     MatChipsModule,
+    MatTableModule,
   ],
   entryComponents:[ConfirmDialogComponent],
   declarations:[

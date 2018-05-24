@@ -67,6 +67,12 @@ import { ReadjsonService } from '../service/Readjson.service';
     {provide: 'BASE_CONFIG',useValue: {
       uri:'http://localhost:3000'
         }
+    //   uri:'http://222.204.2.232:8100/info/table'
+    // }
+     }, 
+     {provide: 'SERVER',useValue: {
+      uri:'http://222.204.2.232:8100'
+        }
      },
      ReadjsonService
   ]

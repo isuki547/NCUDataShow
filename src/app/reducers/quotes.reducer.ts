@@ -10,7 +10,7 @@ export interface State {
 };
 
 export const initialState: Quote = {
-
+// 对于服务获取失败时的初始显示
         "cn":"第一个愿望是，佛一直可以在我心里，帮助我别离开我，来生还可以做人。——《极地》",
         "en":"The first wish is that the Buddha can always be in my heart and help me not to leave me,can still be a person next life. ",
         "pic":"/assets/img/quotes/2.jpg",

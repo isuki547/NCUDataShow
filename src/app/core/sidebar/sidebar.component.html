@@ -1,12 +1,20 @@
 
   <mat-nav-list color="primary">
   <h3 mat-subheader>数据监控</h3>
-  <mat-list-item [routerLink]="['/project']" (click)="onNavClick()">
+  <mat-list-item [routerLink]="['/project']" (click)="handleClicked($event)">
     <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
-    <span mat-line>菜单一</span>
-    <span mat-line md-subheader>查看所有项目</span>
+    <span mat-line>项目</span>
+      <span mat-line mat-subheader>查看所有项目</span>
   </mat-list-item>
-  <h3 mat-subheader>日历</h3>
+ 
+  <mat-divider></mat-divider>
+
+  <mat-list-item *ngFor="let prj of projects" (click)="onPrjClicked($event,prj)">
+    <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
+    <span mat-line>  {{ prj.name }}  </span>
+    <span mat-line mat-subheader> {{ prj.desc }} </span>
+  </mat-list-item>
+  <h3 mat-subheader>监控图表</h3>
     <mat-list-item  [routerLink]="['/tasklists']"  (click)="onNavClick()">
     <mat-icon mat-list-icon svgIcon="month"></mat-icon>
     <span mat-line>月视图</span>

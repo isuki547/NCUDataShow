@@ -21,7 +21,7 @@ export class AuthService {
     //POST请求 注册
     register(user:User): Observable<Auth>{
         // user.id = null;//默认不带id
-        const uri=`${this.config.uri}/${this.domain}`;
+        const uri=`${this.config.uri} /${this.domain}`;
         return this.http
         .get(uri,{params:{'email': user.email}})
         .switchMap(res =>{
@@ -38,8 +38,10 @@ export class AuthService {
     //PUT请求 登录
     login(username:string,password:string): Observable<Auth>{
         const uri=`${this.config.uri}/${this.domain}`;
+        //连接数据库查询用户是否存在
         return this.http
        .get(uri,{params:{'name':username,'password':password}})
+       //读取返回数据
         .map(res => {
             if(res.json().length ===0){
                 throw 'username or password not match';

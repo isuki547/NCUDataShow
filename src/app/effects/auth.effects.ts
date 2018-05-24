@@ -11,26 +11,32 @@ import * as routerActions from '../actions/router.action';
 
 @Injectable()
 export class AuthEffects {
-
-  /**
-   *
-   */
+  
   @Effect()
-  login$: Observable<Action> = this.actions$
+  //用 @Effect() 修饰器来标明这是一个 Effect
+  login$: Observable<Action> = this.actions$// action 信号流
     .pipe(
       ofType<actions.LoginAction>(actions.LOGIN),
+      // 如果是 LOGIN Action
       map((action: actions.LoginAction) => action.payload),
+      // 转换成 action 的 payload 数据流
+      // 调用服务
       switchMap((val: { email: string, password: string }) => this.authService
         .login(val.email, val.password)
+        //输入账号密码
         .pipe(
           map(auth => new actions.LoginSuccessAction(auth)),
+           // 如果成功发出 LoginSuccessAction 交给其它 Effect 或者 Reducer 去处理
           catchError(err => of(new actions.LoginFailAction({
+             // 如果失败发出 LoginFail Action 交给其它 Effect 或者 Reducer 去处理
+            //  返回登录页面
             status: 501,
             message: err.message,
             exception: err.stack,
             path: '/login',
             timestamp: new Date()
           })))
+          
         )
       )
     );

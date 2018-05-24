@@ -9,6 +9,8 @@ import { SharedModule } from "./shared/shared.module";
 import { ReadjsonService } from './service/Readjson.service';
 // import { HttpClientModule ,HttpClientJsonpModule} from "@angular/common/http";//angular5
 import { HttpModule,JsonpModule } from "@angular/http";
+import { AbmModule } from 'angular-baidu-maps';//百度地图
+import { ChartsModule } from "./charts/charts.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +23,12 @@ import { HttpModule,JsonpModule } from "@angular/http";
      LoginModule,
      CoreModule,
      ProjectModule,
+     ChartsModule,
      TaskModule,
      SharedModule,
+     AbmModule.forRoot({
+      apiKey: 'CE6b29b9beebb8298fb5791c44b7b478' // app key为必选项
+  })
   ],
   providers: [ReadjsonService],
   bootstrap: [AppComponent]

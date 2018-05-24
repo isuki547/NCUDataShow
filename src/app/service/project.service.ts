@@ -11,6 +11,7 @@ import { mergeMap, count, switchMap, map } from 'rxjs/operators';
 export class ProjectService {
     private readonly domain = 'projects';
     data:Object;
+    project={};
     private headers = new Headers({
         'Content-Type':'application/json'
     });
@@ -22,6 +23,7 @@ export class ProjectService {
         project.id = null;//默认不带id
         const uri=`${this.config.uri}/${this.domain}`;
         return this.http
+
         .post(uri,JSON.stringify(project),{ headers:this.headers })
         .map(res => res.json());//系统默认返回
     }
@@ -57,16 +59,18 @@ export class ProjectService {
       .map(res => res.json());
     }
  
-     //PUT请求
+     //PUT请求 邀请组员
      invite(projectId:string,users:User[]): Observable<Project>{
         const uri=`${this.config.uri}/${this.domain}/${projectId}`;
-      
         return this.http.get(uri)
           .map(res =>res.json())
           .switchMap((project: Project) => {
             const existingMembers = project.members;
+            // 取当前项目的组员id
             const invitedIds = users.map(user => user.id);
+            // 取新用户id
             const newIds = _.union(existingMembers, invitedIds);
+            // 组合原有和新邀请的用户id
             return this.http
             .patch(uri, JSON.stringify({ members: newIds }), { headers: this.headers })
             .map(res =>res.json())

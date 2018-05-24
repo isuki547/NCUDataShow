@@ -16,11 +16,13 @@ export class TaskListService {
     }
     //POST请求
     add(tasklist:TaskList): Observable<TaskList>{
-        tasklist.id = null;//默认不带id
+
         const uri=`${this.config.uri}/${this.domain}`;
         return this.http
         .post(uri,JSON.stringify(tasklist),{ headers:this.headers })
         .map(res => res.json());//系统默认返回
+        
+       
     }
 
     //PUT请求
@@ -49,7 +51,7 @@ export class TaskListService {
       .map(res => res.json());
     }
   //拖拽的交换顺序，order交换，服务器返回
-  swapOrder(src:TaskList,target:TaskList):Observable<TaskList>{
+  swapOrder(src:TaskList,target:TaskList):Observable<TaskList[]>{
       const draguri=`${this.config.uri}/${this.domain}/${src.id}`;
       const dropuri=`${this.config.uri}/${this.domain}/${target.id}`;
       const drag$=this.http

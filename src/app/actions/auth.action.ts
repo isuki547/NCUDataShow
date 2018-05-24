@@ -13,22 +13,21 @@ export const LOGOUT = '[Auth] Logout';
 
 export class LoginAction implements Action {
   readonly type = LOGIN;
-
   constructor(public payload: { email: string; password: string }) {
+    // 准备发送的数据
   }
 }
-
+// 对登录action设置不同状态
 export class LoginSuccessAction implements Action {
   readonly type = LOGIN_SUCCESS;
-
   constructor(public payload: Auth) {
+    // 返回一个auth对象
   }
 }
-
 export class LoginFailAction implements Action {
   readonly type = LOGIN_FAIL;
-
   constructor(public payload: Err) {
+    // 返回错误信息
   }
 }
 

@@ -20,7 +20,9 @@ export class NewProjectComponent implements OnInit {
 
   ngOnInit() {
     this.coverImages=this.data.thumbnails;
+    // 获取当前封面略缩图
     if(this.data.project){
+      // 项目存在时，此为修改项目窗口
       this.form = this.fb.group({
         name:[this.data.project.name,Validators.required],
         desc:[this.data.project.desc],
@@ -28,6 +30,7 @@ export class NewProjectComponent implements OnInit {
       });
       this.title="修改项目:";
     }else {
+      // 项目数据为空时，此为创建项目窗口
       this.form = this.fb.group({
         name:['',Validators.required],
         desc:[],
@@ -35,7 +38,6 @@ export class NewProjectComponent implements OnInit {
       });
       this.title='创建项目:';
     }
-   
   }
   onSubmit({value,valid}, ev: Event){
     ev.preventDefault();

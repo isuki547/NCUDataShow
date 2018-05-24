@@ -1,0 +1,24 @@
+<div echarts [options]="onLinemacByMonthOption" class="chart"></div>
+<div class="address-group"> 
+    <mat-form-field >
+      <mat-select  [(value)]="y"
+        placeholder="选择年份">
+        <mat-option *ngFor="let y of years" [value]="y">
+            {{ y }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select  [(value)]="m"
+        placeholder="选择月份">
+        <mat-option *ngFor="let m of months" [value]="m">
+            {{ m }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+<button mat-button type="button" (click)="onSearch(y,m)">
+<mat-icon>search</mat-icon>
+<span>查找</span>
+</button>
+</div>
+<span>已选择: {{y}} 年 {{m}} 月 请注意时间范围</span>

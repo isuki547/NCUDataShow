@@ -25,14 +25,15 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.checkAuth();
   }
-
   checkAuth(): Observable<boolean> {
     return this.store$
       .pipe(
         select(s => s.auth),
         map(auth => {
           const result = auth.token !== undefined && auth.token !== null;
+          // 假设当前用户token存在且不为空
           if (!result) {
+            // 当前无用户，跳转登录界面
             this.store$.dispatch(new routerActions.Go({ path: ['/login'] }));
           }
           return result;

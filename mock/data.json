@@ -5,7 +5,7 @@
       "name": "吴思奇",
       "avatar": "avatars:svg-1",
       "email": "jlosuki@hotmail.com",
-      "id": "37489e0c-df34-c261-71c4-ce75357e3035",
+      "id": "1",
       "projectIds": [
         "1"
       ]
@@ -42,8 +42,8 @@
   "projects": [
     {
       "id": "1",
-      "name": "监控1",
-      "desc": "描述",
+      "name": "用户上网日志",
+      "desc": "用户上网日志图表",
       "coverImg": "assets/img/covers/0.jpg",
       "members": [
         "1",
@@ -52,124 +52,85 @@
     },
     {
       "id": "2",
-      "name": "监控2",
-      "desc": "描述21",
+      "name": "食堂消费数据",
+      "desc": "食堂消费数据的图表1",
       "coverImg": "assets/img/covers/1.jpg",
       "members": [
         "1"
       ]
     },
     {
-      "name": "qq",
+      "name": "test",
       "desc": null,
       "coverImg": "/assets/img/covers/2.jpg",
-      "id": "",
+      "id": "3",
       "members": [
         "1"
       ]
     },
     {
-      "name": "的",
-      "desc": null,
-      "coverImg": "/assets/img/covers/2.jpg",
-      "id": "",
-      "members": [
-        "1"
-      ]
-    },
-    {
-      "name": "w",
-      "desc": null,
-      "coverImg": "/assets/img/covers/2.jpg",
-      "id": "j~VPUZ0",
-      "members": [
-        "1"
-      ]
-    },
-    {
-      "name": "we",
-      "desc": null,
-      "coverImg": "/assets/img/covers/4.jpg",
-      "id": "CXeprCj",
-      "members": [
-        "1"
-      ]
-    },
-    {
-      "name": "123",
-      "desc": null,
-      "coverImg": "/assets/img/covers/3.jpg",
-      "id": "tvQiFBB"
-    },
-    {
-      "name": "1",
-      "desc": null,
-      "coverImg": "/assets/img/covers/1.jpg",
-      "id": "RQGltd4"
-    },
-    {
-      "name": "2",
-      "desc": null,
-      "coverImg": "/assets/img/covers/4.jpg",
-      "id": "SYNcsgH"
-    },
-    {
-      "name": "3",
-      "desc": null,
-      "coverImg": "/assets/img/covers/2.jpg",
-      "id": "iG8TMMn"
-    },
-    {
-      "name": "1",
-      "desc": null,
-      "coverImg": "/assets/img/covers/4.jpg",
-      "id": "Byr1Eqf"
-    },
-    {
-      "name": "2",
-      "desc": null,
-      "coverImg": "/assets/img/covers/1.jpg",
-      "id": "xPcXTx0"
-    },
-    {
-      "name": "23",
-      "desc": null,
+      "name": "12",
+      "desc": "333",
       "coverImg": "/assets/img/covers/0.jpg",
-      "id": "H7_ANnp"
-    },
-    {
-      "name": "4",
-      "desc": null,
-      "coverImg": "/assets/img/covers/4.jpg",
-      "id": "6FGGX23"
-    },
-    {
-      "name": "5",
-      "desc": null,
-      "coverImg": "/assets/img/covers/4.jpg",
-      "id": "MPbVNIF"
-    },
-    {
-      "name": "6",
-      "desc": null,
-      "coverImg": "/assets/img/covers/1.jpg",
-      "id": "r7E6IpL"
-    },
-    {
-      "name": "7qq",
-      "desc": "q",
-      "coverImg": "/assets/img/covers/4.jpg",
-      "id": "KCeXrIS"
+      "members": [
+        "1"
+      ],
+      "id": "DDgVmOS"
     }
   ],
-  "taskLists": [
+  "tasklists": [
+    {
+      "name": "list2",
+      "order": 2,
+      "projectId": "1",
+      "id": "1"
+    },
+    {
+      "name": "已完成",
+      "projectId": "1",
+      "order": 3,
+      "id": "2"
+    },
+    {
+      "name": "待办",
+      "projectId": "2",
+      "order": 1,
+      "id": "3"
+    },
+    {
+      "name": "进行中",
+      "projectId": "2",
+      "order": 2,
+      "id": "4"
+    },
+    {
+      "name": "已完成",
+      "projectId": "1",
+      "order": 3,
+      "id": "5"
+    },
     {
       "name": "list1",
       "order": 1,
       "projectId": "1",
-      "id": "GNJvELQ"
+      "id": "IAZ8HTP"
     }
   ],
+  "task": [],
+  "echart": {
+    "name": "11",
+    "data1": [
+      "前湖一食堂", 
+      "前湖二食堂", "青山湖北区第一食堂",
+      "青山湖北区第二食堂", "后勤管理处购电","前湖三食堂","前湖四食堂","前湖五食堂",
+      "前湖六食堂","前湖行政楼食堂","新世纪超市","前湖医学院一食堂",
+      "前湖医学院二食堂","前湖清真第一食堂","前湖九食堂","前湖十食堂","前湖0791美食城",
+      "南大前湖游泳馆","东湖食堂一楼","东湖食堂二楼","前湖服务大楼食堂","青山湖北苑餐厅","青山湖南区教工食堂",
+      "前湖南院教工食堂","前湖天健教工餐厅"
+    ],
+   
+    "data":  [41, 44, 12, 28, 1, 40, 33,2,77,4,11,57,1,9,72,39,31,1,28,18,25,2,2,3,8]
+  },
   "quotes": [
     {
       "id": "0",
@@ -195,49 +156,5 @@
       "en": "The third wish is that life can be better and a little bit better.",
       "pic": "/assets/img/quotes/3.jpg"
     }
-  ],
-  "tasklists": [
-    {
-      "name": "list1",
-      "order": 1,
-      "projectId": "1",
-      "id": "GNJvELQ"
-    }
-  ],
-  "task": [],
-  "echart": {
-    "name": "1",
-    "data1": [
-      1,
-      2,
-      3,
-      4,
-      4,
-      5,
-      6,
-      7,
-      8
-    ],
-    "data2": [
-      2,
-      3,
-      4,
-      6,
-      7,
-      9,
-      0,
-      7,
-      9
-    ],
-    "date": [
-      "2017-2-3",
-      "2017-23-3",
-      "2017-4-3",
-      "2017-5-3",
-      "2017-6-3",
-      "2017-7-3",
-      "2017-8-3",
-      "2017-9-3"
-    ]
-  }
+  ]
 }

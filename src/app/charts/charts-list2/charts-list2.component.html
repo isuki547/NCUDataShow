@@ -1,0 +1,92 @@
+
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> 餐厅商户数量分布图</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <app-consume-shitang></app-consume-shitang>
+    <p>
+      由刷卡的终端数目得知六食堂与九食堂数量最多，一定程度上反映了学生对食堂的喜爱程度以及食堂的位置是否靠近教学区、住宅区。
+    
+    </p>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>2017年12月至2018年4月食堂消费总额折线图</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-consume-month12-5></app-consume-month12-5>
+      <p>
+          去除2月份寒假的消费数据后，选取消费量较大的五个餐厅进一步分析，发现各餐厅消费的波动基本一致，
+          其中九食堂的消费明显高于其他餐厅，丰富的菜品可能更加吸引同学前往。
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+      <mat-card-header>
+        <mat-card-title> 2018年4月校园消费类型占比图</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img mat-card-image src="../../../assets/consume.png" alt="4月消费分布表">
+        <!-- <p>
+          2018年4月校园消费类型占比图，能清楚的了解校园卡消费的类型、消费金额的占比。
+        </p> -->
+      </mat-card-content>
+    </mat-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>用餐规律对于学生的成绩影响</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <span class="span"> 0.71
+      <div style="font-size:18px;color:grey">DT</div>
+    </span>
+    <span class="span"> 0.74
+      <div style="font-size:18px;color:grey">KNN</div>
+    </span>
+    <p>
+      以上分别是使用决策树和K近邻算法，将学生平均学分绩点作为Y值（目标值），输入的特征值为吃早餐、吃午餐、吃晚餐、性别、年龄、年级和学院。
+      将早餐时段定义为10:00以前，午餐定义为10:00-16:00，晚餐定义为16:00以后。 
+      凡是在此三个时间段内发生的消费，均被统计为早中晚三餐的消费金额。 学生成绩好与坏由平均学分绩点来表示，
+      设计4种可能值，0，1，2，3。 其中0代表绩点是在0~1，1代表1~2，以此类推。当前设置为绩点为3时该学生成绩好。
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>使用K-means聚类算法从学生消费记录判断是否为贫困生</mat-card-title>
+    <mat-card-subtitle>K=5时聚类中心及类别数据</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="mat-table mat-elevation-z8">
+      <thead>
+        <tr class="mat-header-row">
+          <th class="mat-header-cell"> </th>
+          <th class="mat-header-cell"> 早 </th>
+          <th class="mat-header-cell"> 中 </th>
+          <th class="mat-header-cell"> 晚 </th>
+          <th class="mat-header-cell"> 总数 </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="mat-row" *ngFor="let element of elements">
+          <td class="mat-cell"> {{element.position}} </td>
+          <td class="mat-cell"> {{element.morning}} </td>
+          <td class="mat-cell"> {{element.noon}} </td>
+          <td class="mat-cell"> {{element.night}} </td>
+          <td class="mat-cell"> {{element.num}} </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      以早午晚餐的用餐平均金额作为三个维度。 上图表明B类群体（即早餐消费3.22元，中餐消费5.42元，晚餐消费6.60元的人群）消费金额最少， 查询学工处数据可得其中有2356人为贫困生，而贫困生总人数约为3100人。得出结论，76%的贫困生消费较低，
+      侧面证实了其贫困生的身份。而在D类高消费人群中，发现有52人为贫困生，视作可疑人群，原则上不应为贫困生。
+    </p>
+  </mat-card-content>
+</mat-card>
+
+

@@ -37,8 +37,7 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
     private cd:ChangeDetectorRef, 
     private store$: Store<fromRoot.State>) { 
       this.store$.dispatch(new actions.LoadAction(null));//加载
-    
-      this.projects$ = this.store$.select(fromRoot.getProjects);
+      this.projects$ = this.store$.pipe(select(fromRoot.getProjects));
       this.listAnim$ = this.projects$.map(p => p.length);
     }
     selectProject(project: Project) {
@@ -52,7 +51,6 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
 
    }
   openNewProjectDialog(){
-
     const selectedImg=`/assets/img/covers/${Math.floor(Math.random()*5)}mini.jpg`;//默认选中的封面图
     const dialogRef=this.dialog.open(
       NewProjectComponent,{data:{thumbnails: this.getThumbnails(),img:selectedImg}});
@@ -67,18 +65,20 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
       
 
     }
-  
+  // 编辑项目
     launchUpdateDialog(project:Project){
       const dialogRef=this.dialog.open(
         NewProjectComponent,
         {data:{thumbnails: this.getThumbnails(),project: project}});
+        // 取得当前项目的封面略缩图
         dialogRef.afterClosed()
         .take(1)//取一个值后结束
         .filter(n => n)//确保里面有值
         .map(val =>({... val,id: project.id, coverImg: this.buildImgBig(val.coverImg)}))
+        // 将修改后的项目数据放入
         .subscribe(project => {
         this.store$.dispatch(new actions.UpdateAction(project));
-          
+          // dispatch更改项目的action
         });
 
     }
@@ -105,5 +105,6 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
     private buildImgBig(img: string): string {
         return img.indexOf('mini') > -1 ? img.split('mini')[0] + '.jpg' : img;
       }
+  
   }
   

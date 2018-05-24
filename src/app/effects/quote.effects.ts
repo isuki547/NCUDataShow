@@ -19,7 +19,10 @@ export class QuoteEffects {
       switchMap(() => this.quoteService.getQuote()
         .pipe(
           map(quote => new actions.QuoteSuccessAction(quote)),
+           // 如果成功发出 QuoteSuccessAction 交给其它 Effect 或者 Reducer 去处理
           catchError(err => of(new actions.QuoteFailAction(JSON.stringify(err))))
+          // 如果发出 QuoteFailAction 打印错误信息
+
         )
       )
     );

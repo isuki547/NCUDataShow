@@ -1,0 +1,76 @@
+.mat-card {
+    margin: 15px;
+    float: left;
+    width: 44.5%; 
+    border-radius: 10px; 
+    // display: flex;
+//   justify-content:space-around; 
+//    flex: 0 0 300px;
+  
+  }
+  
+  .mat-card-title {
+    display: block;
+    font-size: 18px;
+  }
+  
+  .mat-card-header {
+    text-align: center;
+    display: block;
+  }
+  .mat-card-image{
+    display: flex;
+    padding-top: 30px;
+    width: 90%;
+    height: 90%;
+    padding-left: 7%; // float: left; 
+    justify-content: space-around;
+  }
+  .span{
+    display: flex;
+    font-size: 60px;
+    font-weight: bold;
+    color: coral;
+    display: flex;
+    // justify-content: space-around;
+    padding: 5%;
+    padding-left: 40%;
+  }
+
+  .analy{
+      padding-left: 2%;
+    font-size: 24px;
+}  
+.analy2{
+    font-size: 24px;
+    padding-left: 8%;
+    
+}
+.mat-table { 
+    width: 400px;
+    height: 250px;
+    padding-left: 10%;
+    font-size: 16px;
+    border-collapse:collapse;
+    margin-left: 20%;
+  }
+  .mat-cell{  
+  padding-left: 25px;
+
+  }
+  .mat-header-cell{
+      font-size: 14px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-right: 0px;  
+      
+  }
+  .mat-row{
+      border-top:1px solid rgb(116, 116, 116);
+    //   border-bottom:1px solid rgb(116, 116, 116);
+    }
+    .mat-header{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 0px;  
+    }

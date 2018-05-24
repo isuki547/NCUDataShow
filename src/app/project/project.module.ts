@@ -6,7 +6,6 @@ import { SharedModule } from '../shared/shared.module';
 import { MatDialogModule, MatChipsModule } from "@angular/material";
 import { ProjectRoutingModule } from './project-routing.module';
 import { InviteComponent } from './invite/invite.component';
-import { ProjectDetailComponent } from './project-item/project-detail/project-detail.component';
 import * as echarts from 'echarts';
 import { NgxEchartsModule} from "ngx-echarts";
 import { ReadjsonService } from '../service/Readjson.service';
@@ -24,7 +23,7 @@ import { ReadjsonService } from '../service/Readjson.service';
     ProjectItemComponent,
     NewProjectComponent,
     InviteComponent,
-    ProjectDetailComponent,
+
      
   ],
   entryComponents:[
