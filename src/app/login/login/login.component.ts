@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl,Validators } from "@angular/forms";
-// import { QuoteService } from '../../service/quotes.service';
+import { QuoteService } from '../../service/quotes.service';
 import { Quote } from '../../domain/quote.model';
 import { Observable } from 'rxjs/Observable';
 import { Store,select } from '@ngrx/store';

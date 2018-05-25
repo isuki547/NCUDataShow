@@ -18,7 +18,6 @@ export class SidebarComponent implements OnInit {
 
   constructor(
   ) { }
- @Input() item: Project;
 
   @Input() projects: Project[];
   @Input() auth = false;
@@ -33,11 +32,11 @@ export class SidebarComponent implements OnInit {
   handleClicked(ev: Event) {
     ev.preventDefault();
     this.navClicked.emit();
-    console.log('item:'+this.item);
   }
 
   onPrjClicked(ev: Event, prj: Project) {
     ev.preventDefault();
     this.prjClicked.emit(prj);
+    
   }
 }

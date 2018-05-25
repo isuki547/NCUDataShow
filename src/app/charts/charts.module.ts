@@ -14,6 +14,10 @@ import { ChartsList1Component } from './charts-list1/charts-list1.component';
 import { ChartsList2Component } from './charts-list2/charts-list2.component';
 import { ConsumeShitangComponent } from './consume-shitang/consume-shitang.component';
 import { ConsumeMonth125Component } from './consume-month12-5/consume-month12-5.component';
+import { Consume13Component } from './consume-1-3/consume-1-3.component';
+import { WorkdayNumComponent } from './workday-num/workday-num.component';
+import { WeekendNumComponent } from './weekend-num/weekend-num.component';
+import { ConsumeTypeComponent } from './consume-type/consume-type.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -30,6 +34,10 @@ import { ConsumeMonth125Component } from './consume-month12-5/consume-month12-5.
     ChartsList2Component,
     ConsumeShitangComponent,
     ConsumeMonth125Component,
+    Consume13Component,
+    WorkdayNumComponent,
+    WeekendNumComponent,
+    ConsumeTypeComponent,
   ]
 })
 export class ChartsModule { }

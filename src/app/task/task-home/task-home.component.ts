@@ -14,7 +14,7 @@ import * as fromRoot from '../../reducers';
 import * as actions from '../../actions/task-list.action';
 import { Observable } from 'rxjs/Observable';
 import { TaskList } from '../../domain/index';
-import { getTaskLists } from '../../reducers/index';
+// import { getTaskLists } from '../../reducers/index';
 
 
 @Component({
@@ -39,7 +39,7 @@ export class TaskHomeComponent implements OnInit,OnDestroy {
     private route: ActivatedRoute,
   ) { 
     this.projectId$=this.route.paramMap.pipe(map(p => <string>p.get('id')));
-    this.lists$ = this.store$.pipe(select(fromRoot.getTaskLists));
+    // this.lists$ = this.store$.pipe(select(fromRoot.getTaskLists));
 
   }
 

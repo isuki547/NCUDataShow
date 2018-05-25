@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="openSidebar()" *ngIf="(auth$ | async)?.token" >
+  <button mat-icon-button (click)="openSidebar()"  >
+      <!-- *ngIf="(auth$ | async)?.token" -->
      <mat-icon>list</mat-icon>
     </button>
   <span class="fill-remaining-space"></span>  
@@ -8,5 +9,4 @@
   <span *ngIf="(auth$ | async)?.token"></span>
  <span><a class="logout" mat-button *ngIf="(auth$ | async)?.token" (click)="logout()" >退出</a></span>
  <mat-slide-toggle (change)="onChange($event.checked)">黑夜模式</mat-slide-toggle>
- <!-- <span>{{user.name}}</span> -->
 </mat-toolbar>

@@ -1,7 +1,8 @@
 
   <mat-nav-list color="primary">
   <h3 mat-subheader>数据监控</h3>
-  <mat-list-item [routerLink]="['/project']" (click)="handleClicked($event)">
+  <mat-list-item [routerLink]="['/project']" >
+    <!-- (click)="handleClicked($event)" -->
     <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
     <span mat-line>项目</span>
       <span mat-line mat-subheader>查看所有项目</span>
@@ -9,21 +10,16 @@
  
   <mat-divider></mat-divider>
 
-  <mat-list-item *ngFor="let prj of projects" (click)="onPrjClicked($event,prj)">
+  <h3 mat-subheader>项目列表</h3>
+    <mat-list-item  [routerLink]="['/list2']" >
     <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
-    <span mat-line>  {{ prj.name }}  </span>
-    <span mat-line mat-subheader> {{ prj.desc }} </span>
+    <span mat-line>一卡通消费数据</span>
+    <span mat-line mat-subheader>一卡通消费数据的分析图表</span>    
   </mat-list-item>
-  <h3 mat-subheader>监控图表</h3>
-    <mat-list-item  [routerLink]="['/tasklists']"  (click)="onNavClick()">
-    <mat-icon mat-list-icon svgIcon="month"></mat-icon>
-    <span mat-line>月视图</span>
-    <span mat-line mat-subheader>按月查看任务</span>    
-  </mat-list-item>
-    <mat-list-item>
-    <mat-icon mat-list-icon svgIcon="week"></mat-icon>
-    <span mat-line>周视图</span>
-  <span mat-line mat-subheader>按周查看任务</span>    
+    <mat-list-item [routerLink]="['/list1']" >
+    <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
+    <span mat-line>用户上网日志</span>
+  <span mat-line mat-subheader>用户上网日志的分析图表</span>    
   </mat-list-item>
     <mat-list-item>
     <mat-icon mat-list-icon [svgIcon]="today"></mat-icon>
@@ -31,3 +27,4 @@
     <span mat-line mat-subheader>按天查看任务</span>    
   </mat-list-item>
 </mat-nav-list>
+  

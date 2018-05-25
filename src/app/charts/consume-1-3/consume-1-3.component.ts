@@ -5,13 +5,14 @@ import { NgxEchartsService } from "ngx-echarts";
 import { type } from '../../utils/type.util';
 import { Subscription } from 'rxjs/Subscription';
 @Component({
-  selector: 'app-consume-month12-5',
-  templateUrl: './consume-month12-5.component.html',
-  styleUrls: ['./consume-month12-5.component.scss'],
+  selector: 'app-consume-1-3',
+  templateUrl: './consume-1-3.component.html',
+  styleUrls: ['./consume-1-3.component.scss'],
   providers: [ReadjsonService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ConsumeMonth125Component implements OnInit {
+
+export class Consume13Component implements OnInit {
   monthOption:any={};
   constructor(
     private readJsonService: ReadjsonService,
@@ -33,9 +34,9 @@ export class ConsumeMonth125Component implements OnInit {
       tooltip: {
           trigger: 'axis'
       },
-      legend: {
-          data:['九食堂','三食堂','青山湖北区食堂','六食堂','一食堂']
-      },
+      // legend: {
+      //     data:['九食堂','三食堂','青山湖北区食堂','六食堂','一食堂']
+      // },
       grid: {
           left: '3%',
           right: '4%',
@@ -53,7 +54,7 @@ export class ConsumeMonth125Component implements OnInit {
       xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['一月','三月','四月','五月']
+          data: ['1-4','1-5','1-6','1-7','1-8','1-9','1-10','3-21','3-22','3-23','3-24','3-25','3-26','3-27']
       },
       yAxis: {
           type: 'value',
@@ -61,35 +62,13 @@ export class ConsumeMonth125Component implements OnInit {
       },
       series: [
           {
-              name:'九食堂',
+              name:'食堂消费总额',
               type:'line',
               stack: '消费额',
-              data:[139057, 154997, 161462, 204793]
-          },
-          {
-              name:'三食堂',
-              type:'line',
-              stack: '消费金额',
-              data:[36201, 37186, 39648,29894]
-          },
-          {
-              name:'青山湖北区食堂',
-              type:'line',
-              stack: '总量',
-              data:[23776, 22404,24546, 28473]
-          },
-          {
-              name:'六食堂',
-              type:'line',
-              stack: '',
-              data:[47797, 49567, 51064, 44361,]
-          },
-          {
-              name:'一食堂',
-              type:'line',
-              stack: '',
-              data:[46643, 56765, 41193, 34538,]
+              data:[89135, 88740, 65139, 67259,92002,92637,89080,102689,102239,97612,69252,70318,104744,104423]
           }
+        
+        
       ]
   };
   

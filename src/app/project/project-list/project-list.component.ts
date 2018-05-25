@@ -52,8 +52,10 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
    }
   openNewProjectDialog(){
     const selectedImg=`/assets/img/covers/${Math.floor(Math.random()*5)}mini.jpg`;//默认选中的封面图
+    const thumbnails$ = this.getThumbnails();
+
     const dialogRef=this.dialog.open(
-      NewProjectComponent,{data:{thumbnails: this.getThumbnails(),img:selectedImg}});
+      NewProjectComponent,{data:{thumbnails: thumbnails$,img:selectedImg}});
       dialogRef.afterClosed()
       .take(1)//取一个值后结束不需要一直监视
       .filter(n => n)//确保里面有值
@@ -62,14 +64,16 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
         this.store$.dispatch(new actions.AddAction(project));
         // this.cd.markForCheck();
       });
+
       
 
     }
   // 编辑项目
     launchUpdateDialog(project:Project){
+      const thumbnails$ = this.getThumbnails();
       const dialogRef=this.dialog.open(
         NewProjectComponent,
-        {data:{thumbnails: this.getThumbnails(),project: project}});
+        {data:{thumbnails: thumbnails$,project: project}});
         // 取得当前项目的封面略缩图
         dialogRef.afterClosed()
         .take(1)//取一个值后结束
@@ -78,6 +82,7 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
         // 将修改后的项目数据放入
         .subscribe(project => {
         this.store$.dispatch(new actions.UpdateAction(project));
+
           // dispatch更改项目的action
         });
 
@@ -92,9 +97,19 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
 
     });
   }
-    launchInviteDialog(){
-      const dialogRef=this.dialog.open(InviteComponent,{data:{members:[] }});
-  
+
+    launchInviteDialog(project: Project) {
+      let members = [];
+      this.store$.select(fromRoot.getProjectMembers(project.id))
+        .take(1)
+        .subscribe(m => members = m);
+      const dialogRef = this.dialog.open(InviteComponent, {data: { members: members}});
+      // 使用 take(1) 来自动销毁订阅，take(1) 接收到 1 个数据后完成
+      dialogRef.afterClosed().take(1).subscribe(val => {
+        if (val) {
+          this.store$.dispatch(new actions.InviteAction({projectId: project.id, members: val}));
+        }
+      });
     }
     //选择缩略图
     private getThumbnails(){

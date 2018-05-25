@@ -34,7 +34,7 @@ export class ProjectService {
         const toUpdate={
             name: project.name,
             desc:project.desc,
-            coverImg:project.coverImg
+            // coverImg:project.coverImg
         };//只允许改动这三项
         return this.http
         .patch(uri,JSON.stringify(toUpdate),{ headers:this.headers })

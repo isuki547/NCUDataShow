@@ -35,7 +35,7 @@ export class ChipsListComponent implements ControlValueAccessor,OnInit {
   memberResults$: Observable<User[]>;
 
   constructor(private fb: FormBuilder, private service: UserService) {
-    // this.items = [];
+    this.items = [];
   }
   ngOnInit() {
     this.chips =this.fb.group({
@@ -105,13 +105,13 @@ export class ChipsListComponent implements ControlValueAccessor,OnInit {
     return user ? user.name : '';
   }
 
-  // searchUsers(obs: Observable<string>): Observable<User[]> {
-  //   return obs.startWith('')
-  //     .debounceTime(300)
-  //     .distinctUntilChanged()
-  //     .filter(s => s && s.length > 1)
-  //     .switchMap(str => this.service.searchUsers(str));
-  // }
+  searchUsers(obs: Observable<string>): Observable<User[]> {
+    return obs.startWith('')
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .filter(s => s && s.length > 1)
+      .switchMap(str => this.service.searchUsers(str));
+  }
 //才显示输入框
   get displayInput() {
     return this.multiple || (this.items.length === 0);

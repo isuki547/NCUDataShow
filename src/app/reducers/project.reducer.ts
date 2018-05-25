@@ -69,9 +69,7 @@ export function reducer(state = initialState, action: actions.Actions ): State {
         case actions.DELETE_SUCCESS:{
             return deleteProject(state, action);
         }
-        // case actions.INVITE_SUCCESS:{
-        //     return updateProject(state, action);
-        // }
+        // case actions.INVITE_SUCCESS:
         case actions.UPDATE_SUCCESS:{
             return updateProject(state, action);
         }

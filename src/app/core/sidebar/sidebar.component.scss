@@ -1,5 +1,7 @@
 mat-icon{
     align-self: flex-start;
+    width: 39px;
+    
 }
 mat-list .mat-list-icon, .mat-nav-list .mat-list-item .mat-list-icon {
     width: 39px;
@@ -7,4 +9,7 @@ mat-list .mat-list-icon, .mat-nav-list .mat-list-item .mat-list-icon {
     box-sizing: content-box;
     border-radius: 50%;
     padding: 4px;
+}
+.mat-line-text{
+    padding-left: 0px;
 }

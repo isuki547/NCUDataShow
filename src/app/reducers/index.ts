@@ -10,6 +10,7 @@ import * as fromQuote from './quotes.reducer';
 import * as fromAuth  from "./auth.reducer";
 import * as fromProject  from "./project.reducer";
 import * as fromTaskList  from "./task-list.reducer";
+import * as fromUsers from './user.reducer';
 
 
 import { ActionReducerMap ,createFeatureSelector} from '@ngrx/store';
@@ -22,13 +23,16 @@ export interface State {
          auth:Auth;
          project: fromProject.State;
          tasklists: fromTaskList.State;
+         users: fromUsers.State;
 };
 
 export const reducers: ActionReducerMap<State> = {
     quote:fromQuote.reducer,
     auth:fromAuth.reducer,
     project:fromProject.reducer,
-    tasklists:fromTaskList.reducer
+    tasklists:fromTaskList.reducer,
+    users: fromUsers.reducer,
+
   };
 
 
@@ -38,11 +42,18 @@ export const reducers: ActionReducerMap<State> = {
 export const getAuthState = createFeatureSelector<Auth>('auth');
 export const getQuoteState = createFeatureSelector<Quote>('quote');
 export const getProjectsState = createFeatureSelector<fromProject.State>('project');
-export const getTaskListsState = createFeatureSelector<fromTaskList.State>('taskLists');
+// export const getTaskListsState = createFeatureSelector<fromTaskList.State>('taskLists');
+export const getUserState = (state: State) => state.users;
+
+const getProjectEntities = createSelector(getProjectsState, fromProject.getEntities);
+const getUserEntities = createSelector(getUserState, fromUsers.getEntities);
 
 
+export const getProjectMembers = (projectId: string) => createSelector(getProjectsState, getUserEntities, (state, entities) => {
+  return state.entities[projectId].members.map(id => entities[id]);
+});
 export const getProjects = createSelector(getProjectsState, fromProject.getAll);
-export const getTaskLists = createSelector(getTaskListsState,fromTaskList.getSelected);
+
 
   @NgModule({
     imports: [
@@ -55,4 +66,4 @@ export const getTaskLists = createSelector(getTaskListsState,fromTaskList.getSel
        
     ]
 })
-export class AppStoreModule {}
+export class AppStoreModule { }

@@ -1,41 +1,78 @@
-
-
+<!-- 食堂商户数量分布图 -->
 <mat-card>
   <mat-card-header>
     <mat-card-title> 餐厅商户数量分布图</mat-card-title>
   </mat-card-header>
-
   <mat-card-content>
     <app-consume-shitang></app-consume-shitang>
     <p>
       由刷卡的终端数目得知六食堂与九食堂数量最多，一定程度上反映了学生对食堂的喜爱程度以及食堂的位置是否靠近教学区、住宅区。
-    
+
     </p>
   </mat-card-content>
 </mat-card>
+<!-- 1-5月消费总额 -->
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>2017年12月至2018年4月食堂消费总额折线图</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <app-consume-month12-5></app-consume-month12-5>
-      <p>
-          去除2月份寒假的消费数据后，选取消费量较大的五个餐厅进一步分析，发现各餐厅消费的波动基本一致，
-          其中九食堂的消费明显高于其他餐厅，丰富的菜品可能更加吸引同学前往。
-      </p>
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-      <mat-card-header>
-        <mat-card-title> 2018年4月校园消费类型占比图</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <img mat-card-image src="../../../assets/consume.png" alt="4月消费分布表">
-        <!-- <p>
-          2018年4月校园消费类型占比图，能清楚的了解校园卡消费的类型、消费金额的占比。
-        </p> -->
-      </mat-card-content>
-    </mat-card>
+  <mat-card-header>
+    <mat-card-title>2018年1月至5月食堂消费总额折线图</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-consume-month12-5></app-consume-month12-5>
+    <p>
+      去除2月份寒假的消费数据后，选取消费量较大的五个餐厅，其中将青山湖校区的两个食堂数据合并，进一步分析，发现各餐厅消费的波动基本一致， 其中九食堂的消费明显高于其他餐厅，丰富的菜品可能更加吸引同学前往。
+    </p>
+  </mat-card-content>
+</mat-card>
+<!-- 1-3月每日消费总额 -->
+<!-- <mat-card>
+  <mat-card-header>
+    <mat-card-title>2018年1月至3月食堂每日消费总额折线图</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-consume-1-3></app-consume-1-3>
+    <p>
+      去除2月份寒假的消费数据后，将1月至3月的每日消费总额做图。
+    </p>
+  </mat-card-content>
+</mat-card> -->
+<!-- 一周消费类型占比 -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> 2018年3月某一周的校园消费类型占比图</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-consume-type></app-consume-type>
+    <p>
+      2018年3月某一周的校园消费类型占比图，能清楚的了解校园卡消费的类型、消费次数的占比。从图中可知当日 乘坐校车的人次、购电圈水的人次等。可作为后勤调度的参考标准。
+    </p>
+  </mat-card-content>
+</mat-card>
+<!-- 工作日用餐高峰期预警 -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> 用餐高峰预警</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-workday-num></app-workday-num>
+    <p>
+      选取一周的消费记录，取某时段的平均作消费次数为评估值，记录工作日和周末用餐高峰低峰情况。由图可得知
+      周末的早高峰稍晚于工作日，周末学生更倾向于向食堂以外就餐。
+    </p>
+  </mat-card-content>
+</mat-card>
+<!-- 周末用餐高峰预警 -->
+<!-- <mat-card>
+  <mat-card-header>
+    <mat-card-title> 周末用餐高峰预警</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-weekend-num></app-weekend-num>
+    <p>
+      选取周末的消费记录，取某时段的平均作消费次数为评估值，记录周末用餐高峰低峰情况。
+    </p>
+  </mat-card-content>
+</mat-card> -->
+<!-- 用餐规律对于学生成绩的影响 -->
 <mat-card>
   <mat-card-header>
     <mat-card-title>用餐规律对于学生的成绩影响</mat-card-title>
@@ -48,14 +85,12 @@
       <div style="font-size:18px;color:grey">KNN</div>
     </span>
     <p>
-      以上分别是使用决策树和K近邻算法，将学生平均学分绩点作为Y值（目标值），输入的特征值为吃早餐、吃午餐、吃晚餐、性别、年龄、年级和学院。
-      将早餐时段定义为10:00以前，午餐定义为10:00-16:00，晚餐定义为16:00以后。 
-      凡是在此三个时间段内发生的消费，均被统计为早中晚三餐的消费金额。 学生成绩好与坏由平均学分绩点来表示，
-      设计4种可能值，0，1，2，3。 其中0代表绩点是在0~1，1代表1~2，以此类推。当前设置为绩点为3时该学生成绩好。
+      以上分别是使用决策树和K近邻算法，将学生平均学分绩点作为Y值（目标值），输入的特征值为吃早餐、吃午餐、吃晚餐、性别、年龄、年级和学院。 将早餐时段定义为10:00以前，午餐定义为10:00-16:00，晚餐定义为16:00以后。 凡是在此三个时间段内发生的消费，均被统计为早中晚三餐的消费金额。
+      学生成绩好与坏由平均学分绩点来表示， 设计4种可能值，0，1，2，3。 其中0代表绩点是在0~1，1代表1~2，以此类推。当前设置为绩点为3时该学生成绩好。
     </p>
   </mat-card-content>
 </mat-card>
-
+<!-- 聚类算法判断是否为贫困生 -->
 <mat-card>
   <mat-card-header>
     <mat-card-title>使用K-means聚类算法从学生消费记录判断是否为贫困生</mat-card-title>
@@ -88,5 +123,3 @@
     </p>
   </mat-card-content>
 </mat-card>
-
-
