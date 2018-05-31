@@ -7,7 +7,6 @@ import { ChartsList2Component } from '../charts/charts-list2/charts-list2.compon
 
 const routes: Routes = [
     { path: 'project', component: ProjectListComponent },
-    { path: 'tasklists', component: TaskListComponent },
     { path: 'list1', component: ChartsList1Component },
     { path: 'list2', component: ChartsList2Component }
     

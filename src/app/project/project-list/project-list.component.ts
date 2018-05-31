@@ -98,18 +98,22 @@ export class ProjectListComponent implements OnInit ,OnDestroy{
     });
   }
 
-    launchInviteDialog(project: Project) {
-      let members = [];
-      this.store$.select(fromRoot.getProjectMembers(project.id))
-        .take(1)
-        .subscribe(m => members = m);
-      const dialogRef = this.dialog.open(InviteComponent, {data: { members: members}});
-      // 使用 take(1) 来自动销毁订阅，take(1) 接收到 1 个数据后完成
-      dialogRef.afterClosed().take(1).subscribe(val => {
-        if (val) {
-          this.store$.dispatch(new actions.InviteAction({projectId: project.id, members: val}));
-        }
-      });
+    // launchInviteDialog(project: Project) {
+    //   let members = [];
+    //   this.store$.select(fromRoot.getProjectMembers(project.id))
+    //     .take(1)
+    //     .subscribe(m => members = m);
+    //   const dialogRef = this.dialog.open(InviteComponent, {data: { members: members}});
+    //   // 使用 take(1) 来自动销毁订阅，take(1) 接收到 1 个数据后完成
+    //   dialogRef.afterClosed().take(1).subscribe(val => {
+    //     if (val) {
+    //       this.store$.dispatch(new actions.InviteAction({projectId: project.id, members: val}));
+    //     }
+    //   });
+    // }
+    launchInviteDialog(){
+      const dialogRef=this.dialog.open(InviteComponent,{data:{members:[] }});
+  
     }
     //选择缩略图
     private getThumbnails(){

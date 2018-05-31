@@ -2,7 +2,7 @@ import {Auth} from '../domain/auth.model';
 import * as actions from '../actions/auth.action';
 
 export const initialState: Auth = {
-  
+
 };
 export interface State {
   auth : Auth;

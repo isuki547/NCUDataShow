@@ -13,6 +13,10 @@
         <mat-form-field  class="full-width">
             <input matInput type="password" placeholder=" 您的密码" formControlName="password">
           </mat-form-field> 
+       
+          <!-- <button mat-raised-button color="primary"  type="button" [disabled]="!form.valid"
+          (click)="login()" >登录</button> -->
+       
           <button mat-raised-button color="primary"  type="submit" [disabled]="!form.valid">登录</button>
   </mat-card-content>
   <mat-card-actions class="text-right">

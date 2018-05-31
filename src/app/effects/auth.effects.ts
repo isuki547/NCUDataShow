@@ -33,7 +33,7 @@ export class AuthEffects {
             status: 501,
             message: err.message,
             exception: err.stack,
-            path: '/login',
+            path: '/project',
             timestamp: new Date()
           })))
           
